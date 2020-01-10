@@ -9,7 +9,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/4t900laf0xoqkwk/Peru_Fish.pkl?raw=1'
+export_file_url = 'https://www.dropbox.com/s/hs6ehrz6mxhpa6u/Peru_Fish.pkl?raw=1'
 export_file_name = 'Peru_Fish.pkl'
 
 classes = ['Ancistrus', 'Apistogramma', 'Astyanax', 'Bario', 'Bryconops', 'Bujurquina', 'Bunocephalus', 'Characidium', 'Charax', 'Copella', 'Corydoras', 'Creagrutus', 'Curimata', 'Doras', 'Erythrinus', 'Gasteropelecus', 'Gymnotus', 'Hemigrammus', 'Hyphessobrycon', 'Moenkhausia', 'Otocinclus', 'Oxyropsis', 'Phenacogaster', 'Pimelodella', 'Prochilodus', 'Pygocentrus', 'Pyrrhulina', 'Rineloricaria', 'Sorubim', 'Tatia', 'Tetragonopterus', 'Tyttocharax']
