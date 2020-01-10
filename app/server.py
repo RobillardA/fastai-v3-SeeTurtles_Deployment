@@ -9,8 +9,8 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/home?preview=peru_fish_ID_seed55a.pkl'
-export_file_name = 'peru_fish_ID_seed55a.pkl'
+export_file_url = 'https://www.dropbox.com/s/4t900laf0xoqkwk/peru_fish_ID_seed55a.pth?raw=1'
+export_file_name = 'peru_fish_ID_seed55a.pth'
 
 classes = ['Ancistrus', 'Apistogramma', 'Astyanax', 'Bario', 'Bryconops', 'Bujurquina', 'Bunocephalus', 'Characidium', 'Charax', 'Copella', 'Corydoras', 'Creagrutus', 'Curimata', 'Doras', 'Erythrinus', 'Gasteropelecus', 'Gymnotus', 'Hemigrammus', 'Hyphessobrycon', 'Moenkhausia', 'Otocinclus', 'Oxyropsis', 'Phenacogaster', 'Pimelodella', 'Prochilodus', 'Pygocentrus', 'Pyrrhulina', 'Rineloricaria', 'Sorubim', 'Tatia', 'Tetragonopterus', 'Tyttocharax']
 path = Path(__file__).parent
