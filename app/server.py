@@ -8,14 +8,9 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
-import json
-import webbrowser
 
-import warnings
-warnings.filterwarnings("ignore")
-
-export_file_url = 'https://www.dropbox.com/s/y801x8jx8oreus5/TooRareToWear_P.pkl?raw=1'
-export_file_name = 'TooRareToWear_P.pkl'
+export_file_url = 'https://www.dropbox.com/s/nzsmxxzbzms3lo3/SeeTurtle.pkl?raw=1'
+export_file_name = 'SeeTurtle.pkl'
 
 classes = ['Real', 'Fake']
 path = Path(__file__).parent
@@ -47,12 +42,12 @@ async def setup_learner():
         else:
             raise
 
+
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
-webbrowser.open_new_tab('http://localhost:5000/')
-print("You can access the classifier app at http://localhost:5000/")
+
 
 @app.route('/')
 async def homepage(request):
@@ -62,16 +57,13 @@ async def homepage(request):
 
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
-    k = 5
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)
-    prediction_tuples = [(classes[i], round(float(conf) * 100,2)) for i, conf in enumerate(list(prediction[2]))]
-    top_k = sorted(prediction_tuples, key = lambda x: x[1], reverse=True)[:k]
-    return JSONResponse({'result': json.dumps(top_k)})
+    prediction = learn.predict(img)[0]
+    return JSONResponse({'result': str(prediction)})
 
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
-        uvicorn.run(app=app, host='127.0.0.1', port=5000, log_level="warning")
+        uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level="info")
