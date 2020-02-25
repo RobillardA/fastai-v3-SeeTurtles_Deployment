@@ -14,8 +14,8 @@ import webbrowser
 import warnings
 warnings.filterwarnings("ignore")
 
-export_file_url = 'https://www.dropbox.com/s/nzsmxxzbzms3lo3/SeeTurtle.pkl?raw=1'
-export_file_name = 'SeeTurtle.pkl'
+export_file_url = 'https://www.dropbox.com/s/wjqpp8ay54k4o6u/SeeTurtles.pkl?raw=1'
+export_file_name = 'SeeTurtles.pkl'
 
 classes = ['Real', 'Fake']
 path = Path(__file__).parent
